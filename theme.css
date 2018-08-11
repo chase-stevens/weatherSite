@@ -1,5 +1,22 @@
+
+body, h1, p, ul {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+
+body {
+  /* background-color: rgb(253, 176, 192); /* alt: yellow; */
+    font-family: 'Roboto', sans-serif;
+}
+
 h1 {
-  color: blue;
+  /* color: rgb(123, 187, 255); /* alt: deepskyblue; */
+}
+
+p, ul {
+  /* color: rgb(106, 121, 248); /* alt: royalblue; */
 }
 
 ul {
