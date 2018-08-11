@@ -4,7 +4,7 @@
 function getWeather() {
   var request = new XMLHttpRequest();
 
-  request.open('GET', 'http://api.openweathermap.org/data/2.5/weather?id=5308655&units=imperial&APPID=cf6da6d6f0df9e748deb7ac9a6b0b174', true);
+  request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?id=5308655&units=imperial&APPID=cf6da6d6f0df9e748deb7ac9a6b0b174', true);
   request.send();
 
   request.onreadystatechange = processRequest;
