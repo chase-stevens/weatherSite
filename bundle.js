@@ -1,11 +1,30 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 
-// TODO: add location getting -- currently only works for phoenix
+// returns location of user and runs getWeather upon success
+function getLocation(){
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(getWeather, locationError, {timeout: 10000});
+  } else {
+    document.getElementById("demo").innerHTML = "Geolocation is not supported on this browser.";
+  }
+}
 
-function getWeather() {
+// error handling
+function locationError() {
+  document.getElementById("demo").innerHTML = "the geolocation is not working at the moment."
+}
+
+// processes weather data and updates site
+// TODO: refactor into separate functions
+function getWeather(position) {
   var request = new XMLHttpRequest();
 
-  request.open('GET', 'http://api.openweathermap.org/data/2.5/weather?id=5308655&units=imperial&APPID=cf6da6d6f0df9e748deb7ac9a6b0b174', true);
+  let lat = Math.round(position.coords.latitude * 100) / 100;
+  let lon = Math.round(position.coords.longitude * 100) / 100;
+
+  document.getElementById("demo").innerHTML = `Latitude: ${lat}<br> Longitude: ${lon}`;
+
+  request.open('GET', `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=cf6da6d6f0df9e748deb7ac9a6b0b174`, true);
   request.send();
 
   request.onreadystatechange = processRequest;
@@ -45,7 +64,7 @@ function getWeather() {
           break;
       }
 
-      // dynamically changes HTML to reflect weather
+      // dynamically changes HTML to reflect weather data
       document.getElementById("location").innerHTML = `<strong>${response.name}</strong>`;
       document.getElementById("status").innerHTML = `Status: ${response.weather[0].main}`;
       document.getElementById("temperature").innerHTML = `Temperature: ${response.main.temp} degrees`;
@@ -55,6 +74,6 @@ function getWeather() {
   }
 }
 
-getWeather();
+getLocation();
 
 },{}]},{},[1]);

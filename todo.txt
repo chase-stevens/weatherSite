@@ -1,0 +1,7 @@
+ideas for weather app:
+-store location
+-see weather for multiple locations
+-turn "get my location" into a button
+-have a default location for weather
+-forecast
+-ui upgrades
