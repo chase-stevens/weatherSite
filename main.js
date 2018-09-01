@@ -18,14 +18,12 @@ function locationError() {
 function getWeather(position) {
   var request = new XMLHttpRequest();
 
+  // retrieving data from open api
   let lat = Math.round(position.coords.latitude * 100) / 100;
   let lon = Math.round(position.coords.longitude * 100) / 100;
 
-  document.getElementById("demo").innerHTML = `Latitude: ${lat}<br> Longitude: ${lon}`;
-
   request.open('GET', `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=cf6da6d6f0df9e748deb7ac9a6b0b174`, true);
   request.send();
-  // zzz
 
   request.onreadystatechange = processRequest;
 
@@ -66,10 +64,8 @@ function getWeather(position) {
 
       // dynamically changes HTML to reflect weather data
       document.getElementById("location").innerHTML = `<strong>${response.name}</strong>`;
-      document.getElementById("status").innerHTML = `Status: ${response.weather[0].main}`;
-      document.getElementById("temperature").innerHTML = `Temperature: ${response.main.temp} degrees`;
-      document.getElementById("humidity").innerHTML = `Humidity: ${response.main.humidity}%`;
-      document.getElementById("wind").innerHTML = `Wind: ${response.wind.speed} mph`;
+      document.getElementById("status").innerHTML = `${response.weather[0].main}`;
+      document.getElementById("temperature").innerHTML = `${response.main.temp}°F`;
     }
   }
 }
