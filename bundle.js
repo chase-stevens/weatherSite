@@ -11,7 +11,7 @@ function getLocation(){
 
 // error handling
 function locationError() {
-  document.getElementById("demo").innerHTML = "the geolocation is not working at the moment."
+  document.getElementById("title").innerHTML = "the geolocation is not working at the moment."
 }
 
 // processes weather data and updates site
@@ -36,37 +36,57 @@ function getWeather(position) {
       var iconImage = document.getElementById("image");
       var icon = response.weather[0].id;
 
+      // TODO: design gradients for each of the weather conditions
       switch (true) {
+
         case (icon < 300): // thunderstorm
           iconImage.setAttribute("src", "images/005-storm.png");
+          document.body.style.backgroundColor = 'rgb(30,117,131)';
+          document.body.style.backgroundImage = 'linear-gradient(135deg, rgba(30,117,131,1) 0%, rgba(47,73,78,1) 68%, rgba(10,15,15,1) 100%)';
           break;
+
         case (icon < 400): // drizzle
           iconImage.setAttribute("src", "images/014-drop.png");
+          document.body.style.backgroundImage = 'linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%)';
           break;
+
         case (icon < 600): // rain
           iconImage.setAttribute("src", "images/007-rain.png");
+          document.body.style.backgroundImage = 'linear-gradient(90deg, #4b6cb7 0%, #182848 100%)';
           break;
+
         case (icon < 700): // snow
           iconImage.setAttribute("src", "images/002-temperature-1.png");
+          document.body.style.backgroundImage = 'linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%)';
           break;
+
         case (icon < 800): // atmosphere
           iconImage.setAttribute("src", "images/009-wind-1.png");
+          document.body.style.backgroundImage = 'linear-gradient(90deg, #efd5ff 0%, #515ada 100%)';
           break;
+
         case (icon === 800): // clear
           iconImage.setAttribute("src", "images/016-sun.png");
+          document.body.style.backgroundColor = "rgb(0,215,255)";
+          document.body.style.backgroundImage = "linear-gradient(135deg, rgba(0,215,255,1) 0%, rgba(204,247,255,1) 50%, rgba(255,255,255,1) 100%)";
           break;
+
         case (icon > 800): // cloud
           iconImage.setAttribute("src", "images/015-cloud.png");
+          document.body.style.backgroundImage = 'linear-gradient(90deg, #3F2B96 0%, #A8C0FF 100%)';
           break;
+
         default:
           alert("none");
           break;
       }
 
       // dynamically changes HTML to reflect weather data
-      document.getElementById("location").innerHTML = `<strong>${response.name}</strong>`;
+      document.getElementById("title").innerHTML = `Weather - ${response.name}`
       document.getElementById("status").innerHTML = `${response.weather[0].main}`;
-      document.getElementById("temperature").innerHTML = `${response.main.temp}°F`;
+      document.getElementById("temperature").innerHTML = `${Math.round(response.main.temp)}°F`;
+      document.getElementById("humidity").innerHTML = `Humidity: ${response.main.humidity}%`
+      document.getElementById("wind").innerHTML = `Wind: ${response.wind.speed}mph`
     }
   }
 }

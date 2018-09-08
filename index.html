@@ -6,17 +6,18 @@
     <link rel="stylesheet" type="text/css" href="theme.css">
     <script src="bundle.js"></script>
   </head>
-  <body>
-    <h1>What's the Weather?</h1>
+  <body id="gradient">
+    <div id="card">
+    <h1 id="title" style="display: inline;">Loading</h1>
+    <br><br>
 
     <!-- weather data from https://openweathermap.org/api -->
-    <p id="weatherInfo">
-        <p id="location"></p>
-        <img id="image">
-        <ul>
-          <li id="status"></li>
-          <li id="temperature"></li>
-        </ul>
-    </p>
+    <img id="image" align="left">
+    <div id="status" style="font-size: 2em; text-align: left;"></div>
+    <div>
+      <div id="temperature" style="position: relative; right: 0; font-size: 3.5em; text-align: right;"></div>
+      <div id="humidity" style="display: block; position: relative; text-align: right;"></div>
+      <div id="wind" style="display: block; position: relative; text-align: right;"></div>
+    </div>
   </body>
 </html>

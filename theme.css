@@ -1,33 +1,30 @@
+html {
+  height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
 body, h1, p, ul {
   margin: auto;
-  width: 50%;
+  width: 75%;
   padding: 10px;
   text-align: center;
 }
 
+h1 {
+  margin-bottom: 100px;
+}
+
 body {
   /* background-color: rgb(253, 176, 192); /* alt: yellow; */
-    font-family: 'Roboto', sans-serif;
+  width: 540px;
+  font-family: 'Roboto', sans-serif;
+  background-color: black;
 }
 
-h1 {
-  /* color: rgb(123, 187, 255); /* alt: deepskyblue; */
-}
-
-p, ul {
-  /* color: rgb(106, 121, 248); /* alt: royalblue; */
-}
-
-ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-li {
-  font-size: small;
-}
-
-#demo {
-  font-size: x-small;,
+#card {
+  background-color: white;
+  border-radius: 15px;
 }
