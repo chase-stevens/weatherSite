@@ -28,3 +28,12 @@ body {
   background-color: white;
   border-radius: 15px;
 }
+
+#image {
+  margin: 5px;
+}
+
+#stats {
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
