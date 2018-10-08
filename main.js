@@ -34,8 +34,7 @@ function getWeather(position) {
       // displays weather icon
       var iconImage = document.getElementById("image");
       var icon = response.weather[0].id;
-
-      // TODO: design gradients for each of the weather conditions
+ 
       switch (true) {
 
         case (icon < 300): // thunderstorm
