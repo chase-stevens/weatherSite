@@ -4,20 +4,66 @@
     <title>What's the Weather?</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="theme.css">
-    <script src="bundle.js"></script>
   </head>
   <body id="gradient">
-    <div id="card">
-    <h1 id="title" style="display: inline;">Loading</h1>
-    <br><br>
+    <div class="card">
+      <h1 id="title" style="display: inline;">Loading</h1>
+      <br><br>
 
     <!-- weather data from https://openweathermap.org/api -->
-    <img id="image" align="left">
-    <div id="status" style="font-size: 2em; text-align: left;"></div>
-    <div id="stats">
-      <div id="temperature" style="position: relative; right: 0; font-size: 3.5em; text-align: right;"></div>
-      <div id="humidity" style="display: block; position: relative; text-align: right;"></div>
-      <div id="wind" style="display: block; position: relative; text-align: right;"></div>
+      <img id="image" align="left">
+      <div id="status" style="font-size: 2em; text-align: left;"></div>
+      <div id="stats">
+        <div id="temperature" style="position: relative; right: 0; font-size: 3.5em; text-align: right;"></div>
+        <div id="humidity" style="display: block; position: relative; text-align: right;"></div>
+        <div id="wind" style="display: block; position: relative; text-align: right;"></div>
+      </div>
     </div>
+
+    <div class="forecast-container card">
+      <h2 style="margin-bottom: 0;">5 Day Forecast</h2>
+      <div class="forecast-day">
+        <p>Monday</p>
+        <img src="images/016-sun.png" style="width: 50px; height: auto;"/>
+        <div style="overflow: auto;">
+          <p class="forecast-high">High: 80°</p>
+          <p class="forecast-low">Low: 65°</p>
+        </div>
+      </div>
+      <div class="forecast-day">
+        <p>Monday</p>
+        <img src="images/016-sun.png" style="width: 50px; height: auto;"/>
+        <div style="overflow: auto;">
+          <p class="forecast-high">High: 80°</p>
+          <p class="forecast-low">Low: 65°</p>
+        </div>
+      </div>
+      <div class="forecast-day">
+        <p>Monday</p>
+        <img src="images/016-sun.png" style="width: 50px; height: auto;"/>
+        <div style="overflow: auto;">
+          <p class="forecast-high">High: 80°</p>
+          <p class="forecast-low">Low: 65°</p>
+        </div>
+      </div>
+      <div class="forecast-day">
+        <p>Monday</p>
+        <img src="images/016-sun.png" style="width: 50px; height: auto;"/>
+        <div style="overflow: auto;">
+          <p class="forecast-high">High: 80°</p>
+          <p class="forecast-low">Low: 65°</p>
+        </div>
+      </div>
+      <div class="forecast-day">
+        <p>Monday</p>
+        <img src="images/016-sun.png" style="width: 50px; height: auto;"/>
+        <div style="overflow: auto;">
+          <p class="forecast-high">High: 80°</p>
+          <p class="forecast-low">Low: 65°</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
   </body>
 </html>

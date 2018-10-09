@@ -24,7 +24,7 @@ body {
   background-color: black;
 }
 
-#card {
+.card {
   background-color: white;
   border-radius: 15px;
 }
@@ -36,4 +36,34 @@ body {
 #stats {
   margin-right: 10px;
   margin-bottom: 5px;
+}
+
+.forecast-container {
+  width: 100%;
+}
+
+.forecast-day {
+  display: inline-block;
+  width: 19%;
+  border: 1px solid red;
+}
+
+.forecast-high, .forecast-low {
+  width: 50%;
+  font-size: .75em;
+  display: inline-block;
+  vertical-align: top;
+
+  margin: 0;
+  padding: 5px 0 5px 0;
+}
+
+.forecast-high {
+  text-align: left;
+  float: left;
+}
+
+.forecast-low {
+  text-align: right;
+  float: right;
 }

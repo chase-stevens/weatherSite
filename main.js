@@ -34,7 +34,7 @@ function getWeather(position) {
       // displays weather icon
       var iconImage = document.getElementById("image");
       var icon = response.weather[0].id;
- 
+
       switch (true) {
 
         case (icon < 300): // thunderstorm
@@ -80,7 +80,7 @@ function getWeather(position) {
       }
 
       // dynamically changes HTML to reflect weather data
-      document.getElementById("title").innerHTML = `Weather - ${response.name}`
+      document.getElementById("title").innerHTML = `${response.name}`
       document.getElementById("status").innerHTML = `${response.weather[0].main}`;
       document.getElementById("temperature").innerHTML = `${Math.round(response.main.temp)}°F`;
       document.getElementById("humidity").innerHTML = `Humidity: ${response.main.humidity}%`
