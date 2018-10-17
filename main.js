@@ -17,7 +17,8 @@ function locationError() {
 function displayWeather(position) {
   let coords = LatLonCoords(position);
   console.log(coords);
-  let todayWeather = getWeatherData(coords.lat, coords.lon);
+  getWeatherData(coords.lat, coords.lon);
+  getForecastData(coords.lat, coords.lon);
 }
 
 function LatLonCoords(position) {
@@ -38,12 +39,30 @@ function getWeatherData(lat, lon) {
     if (request.readyState === 4 && request.status === 200) {
       var response = JSON.parse(request.responseText);
       renderMainData(response);
-    }
-    else {
-      console.log("error with weather api");
+      renderForecastData(0, response);
     }
   }
 }
+
+function getForecastData(lat, lon) {
+  var request = new XMLHttpRequest();
+
+  request.open('GET', `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&APPID=cf6da6d6f0df9e748deb7ac9a6b0b174`, true);
+  request.send();
+  request.onreadystatechange = processRequest;
+
+  function processRequest(e){
+    if (request.readyState === 4 && request.status === 200) {
+      var response = JSON.parse(request.responseText);
+      renderForecastData(1, response);
+      renderForecastData(2, response);
+      renderForecastData(3, response);
+      renderForecastData(4, response);
+    }
+  }
+}
+
+
 
 /*
 function getForecastData(lat, lon) {
@@ -124,15 +143,30 @@ function renderMainData(apiResponse) {
   document.getElementById("wind").innerHTML = `Wind: ${Math.round(apiResponse.wind.speed)}mph`
 }
 
-/*
 function renderForecastData(day, apiResponse) {
-  let date = document.querySelector(".day.date");
-  let iconImage = document.querySelector(".day.weather-icon");
-  let high = document.querySelector(".day.forecast-high");
-  let low = document.querySelector(".day.forecast-low");
-  // date
+  // setting date
+  let forecastDate = new Date();
+  forecastDate.setDate(forecastDate.getDate() + day);
 
-  // status
+  let daySelector = `day-${day}`;
+
+  if (day == 0) {
+    forecastWeatherData = apiResponse;
+  }
+  else {
+    forecastWeatherData = apiResponse.list[((day - 1) * 8 + 4)];
+  }
+
+
+  let date = document.querySelector(`.${daySelector} .date`);
+  let iconImage = document.querySelector(`.${daySelector} .wi`);
+  let icon = forecastWeatherData.weather[0].id;
+  let high = document.querySelector(`.${daySelector} .forecast-high`);
+  let low = document.querySelector(`.${daySelector} .forecast-low`);
+  // date
+  date.innerHTML = `${forecastDate.getMonth() + 1}/${forecastDate.getDate()}`;
+
+  status
   switch (true) {
 
     case (icon < 300): // thunderstorm
@@ -167,10 +201,11 @@ function renderForecastData(day, apiResponse) {
       break;
   }
   // high
-  high.innerHTML = `High: ${apiResponse.main.temp_max}`;
+  high.innerHTML = `High: ${forecastWeatherData.main.temp_max}`;
   // low
-  low.innerHTML = `Low: ${apiResponse.main.temp_min}`;
+  low.innerHTML = `Low: ${forecastWeatherData.main.temp_min}`;
 }
+/*
       // displays weather icon
       var iconImage = document.getElementById("weather-icon");
       var icon = response.weather[0].id;

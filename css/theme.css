@@ -57,8 +57,7 @@ body {
 
 .forecast-container {
   position: relative;
-  top: 50%;
-  width: 100%;
+  width: 50%;
 }
 
 .forecast-day {
