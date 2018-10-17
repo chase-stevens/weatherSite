@@ -18,29 +18,36 @@ h1 {
 }
 
 body {
-  /* background-color: rgb(253, 176, 192); /* alt: yellow; */
-  width: 540px;
+  width: 100%;
+  height: auto;
   font-family: 'Roboto', sans-serif;
   background-color: black;
+  text-align: center;
 }
 
 .card {
+  position: relative;
+  left: 25%;
+  width: 50%;
+  height: 100%;
   background-color: white;
   border-radius: 15px;
 }
 
-#image {
-  margin: 5px;
-}
-
-#weather-icon-container {
-
-}
-
-#weather-icon {
+.weather-icon-container {
   position: absolute;
-  align: left;
-  font-size: 96px;
+  text-align: left;
+  margin-left: 1%;
+  height: auto;
+}
+
+.weather-icon-container .wi {
+  font-size: 4em;
+}
+
+.weather-icon-container .status {
+  text-align: center;
+  font-size: 1.5em;
 }
 
 #stats {
@@ -49,6 +56,8 @@ body {
 }
 
 .forecast-container {
+  position: relative;
+  top: 50%;
   width: 100%;
 }
 
