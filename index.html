@@ -3,7 +3,8 @@
   <head>
     <title>What's the Weather?</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="theme.css">
+    <link rel="stylesheet" href="css/weather-icons.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/theme.css">
   </head>
   <body id="gradient">
     <div class="card">
@@ -11,8 +12,11 @@
       <br><br>
 
     <!-- weather data from https://openweathermap.org/api -->
-      <img id="image" align="left">
-      <div id="status" style="font-size: 2em; text-align: left;"></div>
+      <div class="weather-icon-container">
+        <i class="wi" id="weather-icon"></i>
+        <div id="status" style="font-size: 2em; text-align: left;"></div>
+      </div>
+
       <div id="stats">
         <div id="temperature" style="position: relative; right: 0; font-size: 3.5em; text-align: right;"></div>
         <div id="humidity" style="display: block; position: relative; text-align: right;"></div>
@@ -22,41 +26,46 @@
 
     <div class="forecast-container card">
       <h2 style="margin-bottom: 0;">5 Day Forecast</h2>
-      <div class="forecast-day">
-        <p>Monday</p>
-        <img src="images/016-sun.png" style="width: 50px; height: auto;"/>
+
+      <div class="forecast-day day-zero">
+        <p class="date"></p>
+        <i class="wi" id="weather-icon"></i>
         <div style="overflow: auto;">
           <p class="forecast-high">High: 80°</p>
           <p class="forecast-low">Low: 65°</p>
         </div>
       </div>
-      <div class="forecast-day">
-        <p>Monday</p>
-        <img src="images/016-sun.png" style="width: 50px; height: auto;"/>
+
+      <div class="forecast-day day-one">
+        <p class="date">Tomorrow</p>
+        <i class="wi" id="weather-icon"></i>
         <div style="overflow: auto;">
           <p class="forecast-high">High: 80°</p>
           <p class="forecast-low">Low: 65°</p>
         </div>
       </div>
-      <div class="forecast-day">
-        <p>Monday</p>
-        <img src="images/016-sun.png" style="width: 50px; height: auto;"/>
+
+      <div class="forecast-day day-two">
+        <p class="date">{day value of two days from today}</p>
+        <i class="wi" id="weather-icon"></i>
         <div style="overflow: auto;">
           <p class="forecast-high">High: 80°</p>
           <p class="forecast-low">Low: 65°</p>
         </div>
       </div>
-      <div class="forecast-day">
-        <p>Monday</p>
-        <img src="images/016-sun.png" style="width: 50px; height: auto;"/>
+
+      <div class="forecast-day day-three">
+        <p class="date">{day value of two days from today}</p>
+        <i class="wi" id="weather-icon"></i>
         <div style="overflow: auto;">
           <p class="forecast-high">High: 80°</p>
           <p class="forecast-low">Low: 65°</p>
         </div>
       </div>
-      <div class="forecast-day">
-        <p>Monday</p>
-        <img src="images/016-sun.png" style="width: 50px; height: auto;"/>
+
+      <div class="forecast-day day-four">
+        <p class="date">{day value of two days from today}</p>
+        <i class="wi" id="weather-icon"></i>
         <div style="overflow: auto;">
           <p class="forecast-high">High: 80°</p>
           <p class="forecast-low">Low: 65°</p>

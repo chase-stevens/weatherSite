@@ -33,6 +33,16 @@ body {
   margin: 5px;
 }
 
+#weather-icon-container {
+
+}
+
+#weather-icon {
+  position: absolute;
+  align: left;
+  font-size: 96px;
+}
+
 #stats {
   margin-right: 10px;
   margin-bottom: 5px;
