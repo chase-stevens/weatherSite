@@ -65,6 +65,10 @@ body {
   width: 19%;
 }
 
+.forecast-day .wi {
+  font-size: 3em;
+}
+
 .forecast-high, .forecast-low {
   width: 50%;
   font-size: .75em;
