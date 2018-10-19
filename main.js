@@ -11,7 +11,7 @@ function getLocation(){
 
 // error handling
 function locationError() {
-  document.getElementById("title").innerHTML = "the geolocation is not working at the moment."
+  document.getElementById("title").innerHTML = "The geolocation is not currently working."
 }
 
 function displayWeather(position) {
@@ -200,9 +200,9 @@ function renderForecastData(day, apiResponse) {
       break;
   }
   // high
-  high.innerHTML = `High: ${forecastWeatherData.main.temp_max}`;
+  high.innerHTML = `High: ${Math.round(forecastWeatherData.main.temp_max)}`;
   // low
-  low.innerHTML = `Low: ${forecastWeatherData.main.temp_min}`;
+  low.innerHTML = `Low: ${Math.round(forecastWeatherData.main.temp_min)}`;
 }
 /*
       // displays weather icon

@@ -63,7 +63,6 @@ body {
 .forecast-day {
   display: inline-block;
   width: 19%;
-  border: 1px solid red;
 }
 
 .forecast-high, .forecast-low {
